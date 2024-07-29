@@ -19,43 +19,43 @@ import (
 # Connect and create tables
 1. Connect to postgresql database
 ```go
-	err := reposity.Connect(
-		sql_host,
-		sql_port,
-		sql_dbname,
-		sql_sslmode,
-		sql_user,
-		sql_password,
-		sql_schema,
-	)
-	if err != nil {
-		return fmt.Errorf("could not establish database connection - %s", err)
-	}
+err := reposity.Connect(
+	sql_host,
+	sql_port,
+	sql_dbname,
+	sql_sslmode,
+	sql_user,
+	sql_password,
+	sql_schema,
+)
+if err != nil {
+	return fmt.Errorf("could not establish database connection - %s", err)
+}
 ```
 
 2. Create a new struct
 ```go
-	package models
+package models
 
-	type Event struct {
-		ID          uuid.UUID `json:"id" gorm:"primary_key;type:uuid;default:uuid_generate_v4()"`
-		Name        string    `json:"name"`
-	}
+type Event struct {
+	ID          uuid.UUID `json:"id" gorm:"primary_key;type:uuid;default:uuid_generate_v4()"`
+	Name        string    `json:"name"`
+}
 
-	type DTO_Event struct {
-		ID          uuid.UUID `json:"id"`
-		Name        string    `json:"name"`
-	}
+type DTO_Event struct {
+	ID          uuid.UUID `json:"id"`
+	Name        string    `json:"name"`
+}
 ```
 
 3. Create a table in the database
 ```go
-	err := reposity.Migrate(
-		&models.Event{},
-	)
-	if err != nil {
-		panic("Failed to AutoMigrate table! err: " + err.Error())
-	}
+err := reposity.Migrate(
+	&models.Event{},
+)
+if err != nil {
+	panic("Failed to AutoMigrate table! err: " + err.Error())
+}
 ```
 
 # Example
