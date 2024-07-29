@@ -51,7 +51,7 @@ import (
 3. Create a table in the database
 ```go
 	err := reposity.Migrate(
-				&models.Event{},
+		&models.Event{},
 	)
 	if err != nil {
 		panic("Failed to AutoMigrate table! err: " + err.Error())
