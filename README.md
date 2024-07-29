@@ -11,9 +11,9 @@ go get github.com/hoangtu1372k2/common-go
 2. Import comongo into other project
 ```go
 import (
-	"git.basesystem.one/basesys/comongo/auth"
-	"git.basesystem.one/basesys/comongo/reposity"
-	"git.basesystem.one/basesys/comongo/telemetry"
+	"github.com/hoangtu1372k2/common-go/auth"
+	"github.com/hoangtu1372k2/common-go/reposity"
+	"github.com/hoangtu1372k2/common-go/telemetry"
 )
 ```
 # Connect and create tables

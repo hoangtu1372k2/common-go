@@ -1,4 +1,4 @@
-module git.basesystem.one/basesys/comongo
+module github.com/hoangtu1372k2/common-go
 
 go 1.21
 
