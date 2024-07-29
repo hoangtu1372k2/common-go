@@ -9,7 +9,7 @@ go get github.com/hoangtu1372k2/common-go
 ```
 
 2. Import comongo into other project
-```
+```go
 import (
 	"git.basesystem.one/basesys/comongo/auth"
 	"git.basesystem.one/basesys/comongo/reposity"
@@ -18,15 +18,15 @@ import (
 ```
 # Connect and create tables
 1. Connect to postgresql database
-```
+```go
 	err := reposity.Connect(
 		sql_host,
 		sql_port,
-		sql_dbname",
-		sql_sslmode",
-		sql_user",
-		sql_password",
-		sql_schema",
+		sql_dbname,
+		sql_sslmode,
+		sql_user,
+		sql_password,
+		sql_schema,
 	)
 	if err != nil {
 		return fmt.Errorf("could not establish database connection - %s", err)
@@ -34,7 +34,7 @@ import (
 ```
 
 2. Create a new struct
-```
+```go
 	package models
 
 	type Event struct {
@@ -49,7 +49,7 @@ import (
 ```
 
 3. Create a table in the database
-```
+```go
 	err := reposity.Migrate(
 				&models.Event{},
 	)
@@ -60,7 +60,7 @@ import (
 
 # Example
 1. Response controller
-```
+```go
 package models
 
 // Response for one DTO
@@ -117,7 +117,7 @@ type PagingData[M any] struct {
 ```
 
 2. Controller
-```
+```go
 package controllers
 
 // CreateEvent		godoc
