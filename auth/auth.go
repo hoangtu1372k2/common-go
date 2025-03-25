@@ -103,3 +103,14 @@ func ValidateToken(c *gin.Context, jwksURL string) bool {
 	// then both of JWT and public key must contain same "kid" in header
 	return false
 }
+func GetUserID(c *gin.Context) string {
+	userName, exists := c.Get("user_name")
+	if !exists {
+		return ""
+	}
+
+	if userStr, ok := userName.(string); ok {
+		return userStr
+	}
+	return ""
+}
